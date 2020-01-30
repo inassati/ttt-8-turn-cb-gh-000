@@ -34,3 +34,16 @@ end
 def move(board, position, x_or_o="X")
   board[position] = x_or_o
 end
+
+def turn(board)
+  puts "Please enter 1-9:"
+  nb = gets.strip
+  nb = input_to_index(nb)
+  while !valid_move?(board, nb)
+    puts "Please enter 1-9:"
+    nb = gets.strip
+    nb = input_to_index(nb)
+  end
+  move(board, nb)
+  display_board(board)
+end
